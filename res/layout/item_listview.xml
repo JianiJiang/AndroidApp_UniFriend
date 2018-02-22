@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_item_listview_img"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
+                    app:srcCompat="@drawable/img" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tv_item_listview_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="A Big Title"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:id="@+id/tv_item_listview_body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Part of body"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:layout_weight="1"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+
+                                <ImageButton
+                                    android:id="@+id/im_item_listview_like"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="@color/accent"
+                                    app:srcCompat="@drawable/thumbup" />
+
+
+                                <ImageButton
+                                    android:id="@+id/im_item_listview_dislike"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="@color/accent"
+                                    app:srcCompat="@drawable/thumbdown" />
+
+
+
+                                <ImageButton
+                                    android:id="@+id/im_item_listview_share"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="@color/accent"
+                                    app:srcCompat="@drawable/ic_menu_share"
+                                    tools:ignore="VectorDrawableCompat" />
+
+
+                                <ImageButton
+                                    android:id="@+id/ib_item_listview_comment"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="@color/accent"
+                                    app:srcCompat="@drawable/message"
+                                    tools:ignore="UnknownId" />
+
+
+
+                                <ImageButton
+                                    android:id="@+id/ib_item_listview_report"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="@color/accent"
+                                    app:srcCompat="@drawable/flag" />
+
+
+
+
+
+
+
+                        </LinearLayout>
+
+
+
+                        <TextView
+                            android:id="@+id/tv_item_listview_edited"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Last edited: 2018-02-10" />
+
+                </LinearLayout>
+        </LinearLayout>
+
+
+
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#000000" />
+</LinearLayout>
