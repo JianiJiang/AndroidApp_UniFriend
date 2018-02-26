@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_item_favourite_img"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            app:srcCompat="@drawable/img" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_item_favourite_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A Big Title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                />
+            <TextView
+                android:id="@+id/tv_item_favourite_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Part of body"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_item_favourite_edited"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last edited: 2018-02-10" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_delete1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_red_light"
+                    android:text="Delete" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#000000" />
+</LinearLayout>
