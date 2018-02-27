@@ -4,6 +4,7 @@ package Adapter;
  * Created by nicole on 2018-02-26.
  */
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import application.MyApp;
 import entity.Fav_ListView;
 import com.example.jiani.login.R;
 
+import com.example.jiani.login.activity.MainActivity;
 import com.example.jiani.login.activity.ProfileActivity;
 
 /**
@@ -37,6 +39,7 @@ public class AdapterFav extends ArrayAdapter<Fav_ListView> {
         super(context, textViewResourcedId, objects);
         fav_list = objects;
         resourcedID = textViewResourcedId;
+        activity = (ProfileActivity) context;
         this.context = context;
         initPost();
     }
@@ -90,6 +93,19 @@ public class AdapterFav extends ArrayAdapter<Fav_ListView> {
                 Toast.makeText(context, "Delete", Toast.LENGTH_LONG).show();
             }
 
+        });
+
+        holder.tvTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, MainActivity.class);
+
+
+                //add the content that get from the server!
+
+                intent.putExtra("val", true);
+                activity.startActivity(intent);
+            }
         });
         return view;
 

@@ -3,6 +3,8 @@ package fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,17 +79,24 @@ public class Comment_Fragment extends Fragment {
             String titleString = intent.getStringExtra("title");
             String bodyString = intent.getStringExtra("body");
             String timeString = intent.getStringExtra("time");
-
+            String nameString = intent.getStringExtra("name");
+            String keywordsString = intent.getStringExtra("keywords");
 
             TextView title = (TextView) view.findViewById(R.id.tv_post_title) ;
             TextView body = (TextView) view.findViewById(R.id.tv_post_body);
             TextView name = (TextView) view.findViewById(R.id.tv_post_author);
             TextView  time = (TextView) view.findViewById(R.id.tv_post_time);
+            TextView keywords = (TextView) view.findViewById(R.id.tv_activity_post_select_keywords);
+
             title.setText(titleString);
             body.setText(bodyString);
             time.setText(timeString);
+            name.setText(nameString);
+            keywords.setText(keywordsString);
         }
     }
+
+
 
     private void initComments() {
 

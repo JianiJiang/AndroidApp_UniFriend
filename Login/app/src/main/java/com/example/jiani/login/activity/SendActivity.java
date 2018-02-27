@@ -20,12 +20,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.jiani.login.R;
 
+import entity.Course;
 import fragment.Comment_Fragment;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
@@ -37,11 +39,13 @@ public class SendActivity extends AppCompatActivity implements NavigationView.On
     private ActionBarDrawerToggle drawerToggle;
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
-    private Spinner spinner;
     private Button post;
     private Button cancel;
     private EditText title;
     private EditText etPost;
+    private CheckBox checkBox;
+    private Spinner spinner;
+
 
 
 
@@ -50,15 +54,13 @@ public class SendActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_send);
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.sp_activity_send_spinner);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter.add("Archietecture and Built Envorinment");
-        adapter.add("Electrical Engineering and Computer Science");
-        adapter.add("Engineering Sciences");
-        adapter.add("Engineering Sciences in Chemistry, Biotechnology and Health");
-        adapter.add("Industrial Engineering and Management");
+        for(Course c : MainActivity.courses) {
+            adapter.add(c.getCourseCode());
+        }
 
         spinner.setAdapter(adapter);
 
@@ -79,6 +81,8 @@ public class SendActivity extends AppCompatActivity implements NavigationView.On
 
          title = (EditText)findViewById(R.id.et_send_activity_title) ;
          etPost = (EditText)findViewById(R.id.et_send_activity_post) ;
+         checkBox= (CheckBox) findViewById(R.id.cb_activity_send_checkbox);
+
 
         title.setSingleLine(false);
         title.setHorizontallyScrolling(false);
@@ -90,6 +94,7 @@ public class SendActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 String inputTitle = title.getText().toString();
                 String inputBody = etPost.getText().toString();
+                String inputKeywords = spinner.getSelectedItem().toString();
 
                 Calendar c = Calendar.getInstance();
                 Date curDate = c.getTime();
@@ -108,7 +113,15 @@ public class SendActivity extends AppCompatActivity implements NavigationView.On
                 intent.putExtra("title",inputTitle);
                 intent.putExtra("body",inputBody);
                 intent.putExtra("time",inputTime);
+                intent.putExtra("keywords",inputKeywords);
                 intent.putExtra("val", true);
+
+                if (checkBox.isChecked()){
+                    intent.putExtra("name","Anonymous Post");
+                }else {
+                    intent.putExtra("name","Jiani Jiang");
+                    //fake name!! need to get the name info from the server!!
+                }
                 startActivity(intent);
 
 
@@ -124,7 +137,7 @@ public class SendActivity extends AppCompatActivity implements NavigationView.On
                 dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(SendActivity.this, ProfileActivity.class);
+                        Intent intent = new Intent(SendActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
                 });

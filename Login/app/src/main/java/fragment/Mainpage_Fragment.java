@@ -57,9 +57,6 @@ public class Mainpage_Fragment extends Fragment{
         listView.setAdapter(adapter);
 
 
-
-
-
         return view;
     }
 

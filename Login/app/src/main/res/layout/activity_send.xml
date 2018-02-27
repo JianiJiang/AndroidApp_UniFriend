@@ -59,13 +59,13 @@
                 />
 
             <CheckBox
-                android:id="@+id/checkbox"
+                android:id="@+id/cb_activity_send_checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Anonymous Post" />
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/sp_activity_send_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

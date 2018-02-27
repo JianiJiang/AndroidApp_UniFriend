@@ -115,6 +115,21 @@ public class AdapterPost extends ArrayAdapter<Post_ListView> {
             }
         });
 
+
+
+        holder.tvTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, MainActivity.class);
+
+
+                //add the content that get from the server!
+
+                intent.putExtra("val", true);
+                activity.startActivity(intent);
+            }
+        });
+
         return view;
 
     }

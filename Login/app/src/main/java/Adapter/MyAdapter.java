@@ -7,7 +7,6 @@ import java.util.List;
 
 import android.app.Application;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 
@@ -22,14 +21,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jiani.login.R;
-import com.example.jiani.login.activity.LoginActivity;
 import com.example.jiani.login.activity.MainActivity;
 
 import entity.Main_page_post;
 
 public class MyAdapter extends ArrayAdapter<Main_page_post> {
-
-
 
 
     private ImageButton ibShare;
@@ -47,7 +43,7 @@ public class MyAdapter extends ArrayAdapter<Main_page_post> {
 
     private int resourcedId;
 
-    public MyAdapter(Context context, int textViewResourceId, List<Main_page_post> objects, List<Fragment> fragments){
+    public MyAdapter(Context context, int textViewResourceId, List<Main_page_post> objects, List<Fragment> fragments) {
         super(context, textViewResourceId, objects);
         resourcedId = textViewResourceId;
         activity = (MainActivity) context;
@@ -60,9 +56,9 @@ public class MyAdapter extends ArrayAdapter<Main_page_post> {
     {
         Main_page_post post = getItem(position);
         View view;
-        if(convertView == null){
-            view = LayoutInflater.from(getContext()).inflate(resourcedId,parent,false);
-        }else{
+        if (convertView == null) {
+            view = LayoutInflater.from(getContext()).inflate(resourcedId, parent, false);
+        } else {
             view = convertView;
         }
         tvBody = (TextView) view.findViewById(R.id.tv_item_listview_mainpage_body);
@@ -80,13 +76,13 @@ public class MyAdapter extends ArrayAdapter<Main_page_post> {
         tvTime.setText(post.getTime());
 
         tvTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                activity.replaceFragment(fragments.get(1));
+                                       @Override
+                                       public void onClick(View view) {
+                                           activity.replaceFragment(fragments.get(1));
+                                       }
+                                   });
 
 
-            }
-        });
                 ibLike.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -110,26 +106,21 @@ public class MyAdapter extends ArrayAdapter<Main_page_post> {
                     public void onClick(View view) {
                         final AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
                         dialog.setTitle("Link Share");
-                        dialog.setMessage("https://download_link/UniFriend.se");
+                        dialog.setMessage("http://download_link/UniFriend.se");
                         dialog.setCancelable(false);
                         dialog.setNegativeButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-
                             }
                         });
-
                         dialog.show();
-
-
                     }
-
 
                 });
                 ibReport.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext(), "Report Successful!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Report Successful!", Toast.LENGTH_LONG).show();
 
                     }
 
@@ -138,8 +129,6 @@ public class MyAdapter extends ArrayAdapter<Main_page_post> {
 
 
 
-
-      return view;
+        return view;
     }
-
 }
