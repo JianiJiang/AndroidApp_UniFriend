@@ -19,7 +19,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
@@ -28,13 +27,13 @@ import java.util.List;
 
 import com.example.jiani.login.R;
 
-import fragment.Favorite;
-import fragment.Post;
+import fragment.ProfileFavorite_Fragment;
+import fragment.ProfilePost_Fragment;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
-    private Post postFragment;
-    private Favorite favoriteFragment;
+    private ProfilePost_Fragment profilePostFragment;
+    private ProfileFavorite_Fragment profileFavoriteFragment;
 
     private View postLayout;
     private View favoriteLayout;
@@ -166,20 +165,20 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         switch(index){
             case 0:
                 postText.setTextColor(Color.BLACK);
-                if(postFragment == null){
-                    postFragment = new Post();
-                    transaction.add(R.id.content, postFragment);
+                if(profilePostFragment == null){
+                    profilePostFragment = new ProfilePost_Fragment();
+                    transaction.add(R.id.content, profilePostFragment);
                 }else{
-                    transaction.show(postFragment);
+                    transaction.show(profilePostFragment);
                 }
                 break;
             case 1:
                 favoriteText.setTextColor(Color.BLACK);
-                if(favoriteFragment == null){
-                    favoriteFragment = new Favorite();
-                    transaction.add(R.id.content, favoriteFragment);
+                if(profileFavoriteFragment == null){
+                    profileFavoriteFragment = new ProfileFavorite_Fragment();
+                    transaction.add(R.id.content, profileFavoriteFragment);
                 }else{
-                    transaction.show(favoriteFragment);
+                    transaction.show(profileFavoriteFragment);
                 }
                 break;
         }
@@ -193,11 +192,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void hideFragments(FragmentTransaction transaction){
-        if(postFragment != null){
-            transaction.hide(postFragment);
+        if(profilePostFragment != null){
+            transaction.hide(profilePostFragment);
         }
-        if (favoriteFragment != null){
-            transaction.hide(favoriteFragment);
+        if (profileFavoriteFragment != null){
+            transaction.hide(profileFavoriteFragment);
         }
     }
 

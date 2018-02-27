@@ -3,15 +3,12 @@ package fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.ScrollView;
 
 import com.example.jiani.login.R;
 import com.example.jiani.login.activity.MainActivity;
@@ -19,10 +16,10 @@ import com.example.jiani.login.activity.MainActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-import Adapter.PostAdapter;
+import Adapter.AdapterSendPost;
 import com.example.listscrollview.ListScrollView;
 import entity.Post_comment;
-import android.content.Intent;
+
 import android.widget.TextView;
 
 
@@ -60,7 +57,7 @@ public class Comment_Fragment extends Fragment {
 
 
 
-        PostAdapter adapter = new PostAdapter(getActivity(), R.layout.listview_item_post, comment_lists, fragments);
+        AdapterSendPost adapter = new AdapterSendPost(getActivity(), R.layout.listview_item_post, comment_lists, fragments);
 
         listView.setAdapter(adapter);
 

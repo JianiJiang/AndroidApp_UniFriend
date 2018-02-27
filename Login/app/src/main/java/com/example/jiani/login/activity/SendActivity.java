@@ -65,7 +65,7 @@ public class SendActivity extends AppCompatActivity implements NavigationView.On
         spinner.setAdapter(adapter);
 
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout_send);
-        toolbar.setTitle("Create Your Post");
+        toolbar.setTitle("Create Your ProfilePost_Fragment");
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_send);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -108,7 +108,7 @@ public class SendActivity extends AppCompatActivity implements NavigationView.On
 
 
                 String inputTime = String.format(year+"-"+month+"-"+day+"-"+" "+hour+":"+minute+":"+second);
-                Toast.makeText(SendActivity.this, "Post Successful!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SendActivity.this, "ProfilePost_Fragment Successful!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(SendActivity.this, MainActivity.class);
                 intent.putExtra("title",inputTitle);
                 intent.putExtra("body",inputBody);
@@ -117,7 +117,7 @@ public class SendActivity extends AppCompatActivity implements NavigationView.On
                 intent.putExtra("val", true);
 
                 if (checkBox.isChecked()){
-                    intent.putExtra("name","Anonymous Post");
+                    intent.putExtra("name","Anonymous ProfilePost_Fragment");
                 }else {
                     intent.putExtra("name","Jiani Jiang");
                     //fake name!! need to get the name info from the server!!

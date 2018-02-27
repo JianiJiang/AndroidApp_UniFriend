@@ -25,7 +25,7 @@ import entity.Post_comment;
  * Created by nicole on 2018-02-25.
  */
 
-public class PostAdapter extends ArrayAdapter<Post_comment> {
+public class AdapterSendPost extends ArrayAdapter<Post_comment> {
 
 
           private int resourcedId;
@@ -36,7 +36,7 @@ public class PostAdapter extends ArrayAdapter<Post_comment> {
           private ImageButton iShare;
           private ImageButton iReport;
 
-    public PostAdapter(Context context, int textViewResourceId, List<Post_comment> objects, List<Fragment> fragments){
+    public AdapterSendPost(Context context, int textViewResourceId, List<Post_comment> objects, List<Fragment> fragments){
         super(context, textViewResourceId, objects);
         resourcedId = textViewResourceId;
         activity = (MainActivity) context;
