@@ -120,5 +120,3 @@ public class Comment_Fragment extends Fragment {
         listView.setLayoutParams(params);
     }
 }
-//////////
-//////////

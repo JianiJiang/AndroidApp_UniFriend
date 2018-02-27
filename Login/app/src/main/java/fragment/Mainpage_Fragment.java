@@ -3,17 +3,27 @@ package fragment;
 /**
  * Created by nicole on 2018-02-22.
  */
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.ViewGroup;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.jiani.login.R;
 
+import com.example.jiani.login.activity.LoginActivity;
 import com.example.jiani.login.activity.MainActivity;
+import com.example.jiani.login.activity.SendActivity;
+
 import Adapter.MyAdapter;
 
 import java.util.ArrayList;
@@ -31,6 +41,10 @@ public class Mainpage_Fragment extends Fragment{
     private List<Main_page_post> post_lists = new ArrayList<>();
     private List<Fragment> fragments;
     private MainActivity activity;
+    private ImageButton like;
+    private ImageButton dislike;
+    private ImageButton share;
+    private ImageButton report;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup containter, Bundle savedInstanceState){
@@ -43,8 +57,14 @@ public class Mainpage_Fragment extends Fragment{
         listView.setAdapter(adapter);
 
 
+
+
+
         return view;
     }
+
+
+
     private void initPost() {
 
         for (int i = 0; i < 7; i++) {

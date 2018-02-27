@@ -19,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
@@ -74,6 +75,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         initViews();
         fragmentManager = getFragmentManager();
         setTabSelection(0);
+
+
+
 
     }
 
@@ -151,6 +155,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 break;
         }
     }
+
+
+
 
     private void setTabSelection(int index){
         clearSelection();

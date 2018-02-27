@@ -4,6 +4,7 @@ package Adapter;
  * Created by nicole on 2018-02-26.
  */
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,9 @@ import application.MyApp;
 import entity.Post_ListView;
 import com.example.jiani.login.R;
 
+import com.example.jiani.login.activity.MainActivity;
 import com.example.jiani.login.activity.ProfileActivity;
+import com.example.jiani.login.activity.SendActivity;
 
 public class AdapterPost extends ArrayAdapter<Post_ListView> {
     //    private TextView tvBody;
@@ -28,10 +31,11 @@ public class AdapterPost extends ArrayAdapter<Post_ListView> {
 //    private TextView tvTime;
 //    private Button delete;
 //    private Button edit;
-    private ProfileActivity activity;
+
     private List<Post_ListView> post_list;
     private Context context;
     private MyApp app;
+    private ProfileActivity activity;
 
     private int resourcedID;
 
@@ -39,9 +43,13 @@ public class AdapterPost extends ArrayAdapter<Post_ListView> {
         super(context, textViewResourcedId, objects);
         post_list = objects;
         resourcedID = textViewResourcedId;
+        activity = (ProfileActivity) context;
+
         this.context = context;
         initPost();
     }
+
+
 
     private  void initPost() {
         for (int i = 0; i < 7; i++) {
@@ -70,6 +78,8 @@ public class AdapterPost extends ArrayAdapter<Post_ListView> {
             holder.delete = (Button) view.findViewById(R.id.post_button_delete);
             holder.edit = (Button) view.findViewById(R.id.post_button_edit);
 
+
+
             view.setTag(holder);
 
         }
@@ -83,6 +93,7 @@ public class AdapterPost extends ArrayAdapter<Post_ListView> {
         holder.tvTitle.setText(post.getTitle());
         holder.tvBody.setText(post.getBody());
         holder.tvTime.setText(post.getTime());
+
         //设定删除键的监听
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +110,8 @@ public class AdapterPost extends ArrayAdapter<Post_ListView> {
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                     Intent intent = new Intent(activity, SendActivity.class);
+                      activity.startActivity(intent);
             }
         });
 
