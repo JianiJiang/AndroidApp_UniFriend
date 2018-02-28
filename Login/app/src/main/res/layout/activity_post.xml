@@ -179,21 +179,21 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginLeft="30dp"
-                    android:text="10"/>
+                    />
                 <TextView
                     android:id="@+id/tv_activity_post_comment_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginLeft="35dp"
-                    android:text="2"/>
+                    />
                 <TextView
                     android:id="@+id/tv_activity_post_report_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginLeft="35dp"
-                    android:text="0"/>
+                    />
 
             </LinearLayout>
 
