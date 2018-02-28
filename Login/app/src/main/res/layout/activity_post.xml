@@ -223,10 +223,11 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Notification.Title.Media" />
 
             <EditText
+                android:id="@+id/Comment"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:hint="Add your comment here:"
+                android:hint="Add your sendComment here:"
                 android:maxLines="5"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 

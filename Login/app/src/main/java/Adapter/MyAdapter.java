@@ -3,9 +3,12 @@ package Adapter;
 /**
  * Created by nicole on 2018-02-19.
  */
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 
@@ -24,6 +27,7 @@ import com.example.jiani.login.activity.MainActivity;
 
 import entity.Post_ListView;
 
+import static com.example.jiani.login.activity.MainActivity.postDetail;
 import static com.example.jiani.login.activity.MainActivity.post_list;
 
 public class MyAdapter extends ArrayAdapter<Post_ListView> {
@@ -40,6 +44,14 @@ public class MyAdapter extends ArrayAdapter<Post_ListView> {
     private TextView tvTime;
     private MainActivity activity;
     private List<Fragment> fragments;
+    private String title;
+    private String body;
+    private String postId;
+    private int like;
+    private int dislike;
+    private String username;
+    private String courseCode;
+    public static List<Post_ListView> homepagePost_list = new ArrayList<>();
 
 
     private int resourcedId;
@@ -48,6 +60,7 @@ public class MyAdapter extends ArrayAdapter<Post_ListView> {
         super(context, textViewResourceId, objects);
         resourcedId = textViewResourceId;
         activity = (MainActivity) context;
+        homepagePost_list = MainActivity.homepagePost_list;
         this.fragments = fragments;
 
     }
@@ -60,7 +73,7 @@ public class MyAdapter extends ArrayAdapter<Post_ListView> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        Post_ListView post = getItem(position);
+        final Post_ListView post = getItem(position);
         View view;
         if (convertView == null) {
             view = LayoutInflater.from(getContext()).inflate(resourcedId, parent, false);
@@ -84,6 +97,7 @@ public class MyAdapter extends ArrayAdapter<Post_ListView> {
         tvTitle.setOnClickListener(new View.OnClickListener() {
                                        @Override
                                        public void onClick(View view) {
+                                           postDetail = post;
                                            activity.replaceFragment(fragments.get(1));
                                        }
                                    });

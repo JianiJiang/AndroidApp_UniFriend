@@ -31,10 +31,10 @@ public class AdapterSendPost extends ArrayAdapter<Post_comment> {
           private int resourcedId;
           private MainActivity activity;
           private List<Fragment> fragments;
-          private ImageButton iDislike;
-          private ImageButton iLike;
-          private ImageButton iShare;
-          private ImageButton iReport;
+//          private ImageButton iDislike;
+//          private ImageButton iLike;
+//          private ImageButton iShare;
+//          private ImageButton iReport;
 
     public AdapterSendPost(Context context, int textViewResourceId, List<Post_comment> objects, List<Fragment> fragments){
         super(context, textViewResourceId, objects);
@@ -65,10 +65,10 @@ public class AdapterSendPost extends ArrayAdapter<Post_comment> {
         commentBody.setText(comment.getBody());
 
 
-        iDislike = (ImageButton) view.findViewById(R.id.im_post_dislike);
-        iLike = (ImageButton) view.findViewById(R.id.im_post_like);
-        iShare = (ImageButton) view.findViewById(R.id.im_post_share);
-        iReport = (ImageButton) view.findViewById(R.id.ib_post_report);
+//        iDislike = (ImageButton) view.findViewById(R.id.im_post_dislike);
+//        iLike = (ImageButton) view.findViewById(R.id.im_post_like);
+//        iShare = (ImageButton) view.findViewById(R.id.im_post_share);
+//        iReport = (ImageButton) view.findViewById(R.id.ib_post_report);
 
 //        iLike.setOnClickListener(new View.OnClickListener() {
 //            @Override
