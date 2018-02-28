@@ -5,7 +5,6 @@ package Adapter;
  */
 import java.util.List;
 
-import android.app.Application;
 import android.content.DialogInterface;
 import android.support.v4.app.Fragment;
 import android.content.Context;
@@ -23,9 +22,11 @@ import android.widget.Toast;
 import com.example.jiani.login.R;
 import com.example.jiani.login.activity.MainActivity;
 
-import entity.Main_page_post;
+import entity.Post_ListView;
 
-public class MyAdapter extends ArrayAdapter<Main_page_post> {
+import static com.example.jiani.login.activity.MainActivity.post_list;
+
+public class MyAdapter extends ArrayAdapter<Post_ListView> {
 
 
     private ImageButton ibShare;
@@ -43,7 +44,7 @@ public class MyAdapter extends ArrayAdapter<Main_page_post> {
 
     private int resourcedId;
 
-    public MyAdapter(Context context, int textViewResourceId, List<Main_page_post> objects, List<Fragment> fragments) {
+    public MyAdapter(Context context, int textViewResourceId, List<Post_ListView> objects, List<Fragment> fragments) {
         super(context, textViewResourceId, objects);
         resourcedId = textViewResourceId;
         activity = (MainActivity) context;
@@ -52,9 +53,14 @@ public class MyAdapter extends ArrayAdapter<Main_page_post> {
     }
 
     @Override
+    public int getCount() {
+        return post_list.size();
+    }
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        Main_page_post post = getItem(position);
+        Post_ListView post = getItem(position);
         View view;
         if (convertView == null) {
             view = LayoutInflater.from(getContext()).inflate(resourcedId, parent, false);
@@ -70,10 +76,10 @@ public class MyAdapter extends ArrayAdapter<Main_page_post> {
         ivImg = (ImageView) view.findViewById(R.id.iv_item_listview_mainpage_img);
         tvTitle = (TextView) view.findViewById(R.id.tv_item_listview_mainpage_title);
         tvTime = (TextView) view.findViewById(R.id.tv_item_listview_edited);
-        ivImg.setImageResource(post.getImageId());
+        ivImg.setImageResource(R.drawable.img);
         tvTitle.setText(post.getTitle());
         tvBody.setText(post.getBody());
-        tvTime.setText(post.getTime());
+        tvTime.setText(post.getDate());
 
         tvTitle.setOnClickListener(new View.OnClickListener() {
                                        @Override

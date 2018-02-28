@@ -44,55 +44,45 @@ public class AdapterPost extends ArrayAdapter<Post_ListView> {
         post_list = objects;
         resourcedID = textViewResourcedId;
         activity = (ProfileActivity) context;
-
         this.context = context;
-        initPost();
+        post_list = MainActivity.post_list;
     }
 
-
-
-    private  void initPost() {
-        for (int i = 0; i < 7; i++) {
-            Post_ListView post1 = new Post_ListView("A big title", "Key word:blablabla", R.drawable.img, "Last edited: 2018-02-01");
-            post_list.add(post1);
-            Post_ListView post2 = new Post_ListView("A big title", "Key word:something", R.drawable.img, "Last edited: 2018-02-02");
-            post_list.add(post2);
-            Post_ListView post3 = new Post_ListView("A big title", "Key word:blablabla", R.drawable.img, "Last edited: 2018-02-03");
-            post_list.add(post3);
-        }
+    @Override
+    public int getCount() {
+        return post_list.size();
     }
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent){
 
-        Post_ListView post = getItem(position);
+        Post_ListView post = post_list.get(position);
+        System.out.println(post_list.get(0).getUser().getUsername());
+
         View view;
         ViewHolder holder = null;
         if (convertView == null){
             holder = new ViewHolder();
             view = LayoutInflater.from(getContext()).inflate(resourcedID, parent, false);
+
             holder.ivImg = (ImageView) view.findViewById(R.id.iv_post_listview_img);
             holder.tvTitle = (TextView) view.findViewById(R.id.tv_post_listview_title);
             holder.tvBody = (TextView) view.findViewById(R.id.tv_post_listview_body);
             holder.tvTime = (TextView) view.findViewById(R.id.tv_post_listview_edited);
             holder.delete = (Button) view.findViewById(R.id.post_button_delete);
             holder.edit = (Button) view.findViewById(R.id.post_button_edit);
-
-
-
             view.setTag(holder);
 
         }
         else {
             view = convertView;
             holder = (ViewHolder) view.getTag();
-
         }
 
-        holder.ivImg.setImageResource(post.getImageId());
+        holder.ivImg.setImageResource(R.drawable.img);
         holder.tvTitle.setText(post.getTitle());
         holder.tvBody.setText(post.getBody());
-        holder.tvTime.setText(post.getTime());
+        holder.tvTime.setText(post.getDate());
 
         //设定删除键的监听
         holder.delete.setOnClickListener(new View.OnClickListener() {
@@ -114,9 +104,6 @@ public class AdapterPost extends ArrayAdapter<Post_ListView> {
                       activity.startActivity(intent);
             }
         });
-
-
-
         holder.tvTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -41,20 +41,12 @@ public class AdapterFav extends ArrayAdapter<Fav_ListView> {
         resourcedID = textViewResourcedId;
         activity = (ProfileActivity) context;
         this.context = context;
-        initPost();
+        fav_list = MainActivity.fav_list;
     }
 
-    private void initPost() {
-        for (int i = 0; i < 7; i++) {
-            Fav_ListView post1 = new Fav_ListView("Review about course IK2206", "I think it is interesting", R.drawable.img, "Last edited: 2018-02-01");
-            fav_list.add(post1);
-            Fav_ListView post2 = new Fav_ListView("Don't take this course", "I think it is bad", R.drawable.img, "Last edited: 2018-02-03");
-            fav_list.add(post2);
-            Fav_ListView post3 = new Fav_ListView("A big title", "Key word:blablabla", R.drawable.img, "Last edited: 2018-02-05");
-            fav_list.add(post3);
-            Fav_ListView post4 = new Fav_ListView("A big title", "Key word:blablabla", R.drawable.img, "Last edited: 2018-02-10");
-            fav_list.add(post4);
-        }
+    @Override
+    public int getCount() {
+        return fav_list.size();
     }
 
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -77,10 +69,10 @@ public class AdapterFav extends ArrayAdapter<Fav_ListView> {
             holder = (AdapterFav.ViewHolder1) view.getTag();
 
         }
-        holder.ivImg.setImageResource(fav.getImageId());
-        holder.tvTitle.setText(fav.getTitle());
-        holder.tvBody.setText(fav.getBody());
-        holder.tvTime.setText(fav.getTime());
+        holder.ivImg.setImageResource(fav.getPost().getImageId());
+        holder.tvTitle.setText(fav.getPost().getTitle());
+        holder.tvBody.setText(fav.getPost().getBody());
+        holder.tvTime.setText(fav.getPost().getDate());
 
         //设定监听delete按键
         holder.delete.setOnClickListener(new View.OnClickListener() {

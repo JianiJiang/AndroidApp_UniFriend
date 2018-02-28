@@ -30,11 +30,12 @@ import application.MyApp;
 import entity.Fav_ListView;
 import com.example.jiani.login.R;
 
+import static com.example.jiani.login.activity.MainActivity.fav_list;
+
 
 public class ProfileFavorite_Fragment extends Fragment {
 
     private ListView listViewFav;
-    private List<Fav_ListView> fav_list = new ArrayList<>();
     private List<Fragment> fragments;
     private MyApp app;
     private RequestQueue myQueue;
@@ -44,21 +45,7 @@ public class ProfileFavorite_Fragment extends Fragment {
         View favorite = inflater.inflate(R.layout.layout_listview_favorite, container, false);
         ProfileActivity activity = (ProfileActivity) getActivity();
         this.fragments = activity.fragments;
-        myQueue = Volley.newRequestQueue(getActivity());
-        String url ="http://213.89.22.179:8080/api/rest/post/profile/favorites/"+LoginActivity.user.getId();
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.i("favorite", response);
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-
-            }
-        });
-        myQueue.add(stringRequest);
 
 
         AdapterFav adapterFav = new AdapterFav(getActivity(), R.layout.listview_item_favorite,fav_list);

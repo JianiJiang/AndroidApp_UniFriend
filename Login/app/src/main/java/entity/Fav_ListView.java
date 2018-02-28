@@ -5,28 +5,41 @@ package entity;
  */
 
 public class Fav_ListView {
-    private String title;
-    private String body;
-    private int imageId;
-    private String time;
+    private int id;
+    private Post_ListView post;
+    private User user;
 
 
-    public Fav_ListView(String title, String body, int imageId, String time){
-        this.title = title;
-        this.imageId = imageId;
-        this.body = body;
-        this.time = time;
+    public Fav_ListView() {
     }
-    public String getTitle(){
-        return title;
+
+    public Fav_ListView(int id, Post_ListView post, User user){
+        this.id = id;
+        this.post = post;
+        this.user = user;
     }
-    public String getBody(){
-        return body;
+
+    public int getId() {
+        return id;
     }
-    public int getImageId(){
-        return imageId;
+
+    public void setId(int id) {
+        this.id = id;
     }
-    public String getTime(){
-        return time;
+
+    public Post_ListView getPost() {
+        return post;
+    }
+
+    public void setPost(Post_ListView post) {
+        this.post = post;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
