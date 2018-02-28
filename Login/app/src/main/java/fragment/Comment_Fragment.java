@@ -1,5 +1,7 @@
 package fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,8 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+
 import android.widget.EditText;
 import android.widget.ImageButton;
+
+
+import android.widget.Button;
+
+import android.widget.ImageButton;
+
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -57,10 +66,18 @@ public class Comment_Fragment extends Fragment {
     private MainActivity activity;
     boolean value = false;
     private View view;
+
     private ImageButton favorite;
     private TextView submit;
     private RequestQueue myQueue;
     private List<Post_comment> comment_list = new ArrayList<>();
+
+    private ImageButton iDislike;
+    private ImageButton iLike;
+    private ImageButton iShare;
+    private ImageButton iReport;
+    private EditText comments;
+
 
 
     @Override
@@ -79,8 +96,12 @@ public class Comment_Fragment extends Fragment {
         TextView name = (TextView) view.findViewById(R.id.tv_post_author);
         TextView  time = (TextView) view.findViewById(R.id.tv_post_time);
         TextView keywords = (TextView) view.findViewById(R.id.tv_activity_post_select_keywords);
-        final EditText comments = (EditText) view.findViewById(R.id.Comment);
+        comments = (EditText) view.findViewById(R.id.Comment);
         favorite = (ImageButton) view.findViewById(R.id.ib_post_comment);
+        iDislike = (ImageButton) view.findViewById(R.id.im_post_dislike);
+        iLike = (ImageButton) view.findViewById(R.id.im_post_like);
+        iShare = (ImageButton) view.findViewById(R.id.im_post_share);
+        iReport = (ImageButton) view.findViewById(R.id.ib_post_report);
         submit = (TextView) view.findViewById(R.id.tv_activity_post_submit) ;
 
         listView = (ListScrollView)view.findViewById(R.id.lv_post_listview);
@@ -89,7 +110,7 @@ public class Comment_Fragment extends Fragment {
 
         title.setText(postDetail.getTitle());
         body.setText(postDetail.getBody());
-        name.setText(postDetail.getUsername());
+        name.setText(postDetail.getUser().getUsername());
         time.setText(postDetail.getDate());
         keywords.setText(postDetail.getCoursecode());
         System.out.println(postDetail.getUsername());
@@ -131,15 +152,60 @@ public class Comment_Fragment extends Fragment {
                     }
                 };
                 myQueue.add(stringRequest);
-                Toast.makeText(getActivity(), "test", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Get comments successful!", Toast.LENGTH_SHORT).show();
             }
         });
 
         favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "test", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Favorite successful!", Toast.LENGTH_SHORT).show();
             }
+        });
+
+
+        iLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Like +1 :)", Toast.LENGTH_SHORT).show();
+
+            }
+
+
+        });
+        iDislike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Dislike +1 :(", Toast.LENGTH_SHORT).show();
+
+            }
+
+
+        });
+        iShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
+                dialog.setTitle("Link Share");
+                dialog.setMessage("http://download_link/UniFriend.se");
+                dialog.setCancelable(false);
+                dialog.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+                dialog.show();
+            }
+
+        });
+        iReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Report Successful!", Toast.LENGTH_LONG).show();
+
+            }
+
+
         });
         AdapterSendPost adapter = new AdapterSendPost(getActivity(), R.layout.listview_item_post, comment_list, fragments);
 

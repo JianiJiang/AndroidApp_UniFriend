@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mNavigationView = (NavigationView) findViewById(R.id.id_nv_menu);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         mDrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        toolbar.setTitle("Homepage");
+        toolbar.setTitle("UniFriends");
        setSupportActionBar(toolbar);
 
 
@@ -232,7 +232,7 @@ public void HomepagePost() {
         public void onResponse(String response) {
             List<Post_ListView> temp = Arrays.asList(JSON.parseObject(response, Post_ListView[].class));
             for (Post_ListView h : temp) {
-                Post_ListView home = new Post_ListView(h.getId(), h.getUser(), h.getTitle(), h.getBody(), h.isAnonymous(), h.getLikes(), h.getDislikes(), h.getDate());
+                Post_ListView home = new Post_ListView(h.getId(), h.getUser(), h.getTitle(), h.getBody(), h.isAnonymous(), h.getLikes(), h.getDislikes(), h.getDate(), h.getCoursecode());
                 homepagePost_list.add(home);
             }
         }
@@ -258,7 +258,7 @@ public void ProfilePosts(){
 
             for (Post_ListView p :temp){
                 if (p.getUser().getUsername().equals(user.getUsername())){
-                    Post_ListView post = new Post_ListView(p.getId(), p.getUser(), p.getTitle(), p.getBody(), p.isAnonymous(), p.getLikes(), p.getDislikes(), p.getDate());
+                    Post_ListView post = new Post_ListView(p.getId(), p.getUser(), p.getTitle(), p.getBody(), p.isAnonymous(), p.getLikes(), p.getDislikes(), p.getDate(), p.getCoursecode());
                     post_list.add(post);
                     //System.out.println(p.getUser().getUsername());
                 }

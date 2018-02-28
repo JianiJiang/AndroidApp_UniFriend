@@ -31,10 +31,12 @@ public class AdapterSendPost extends ArrayAdapter<Post_comment> {
           private int resourcedId;
           private MainActivity activity;
           private List<Fragment> fragments;
+
 //          private ImageButton iDislike;
 //          private ImageButton iLike;
 //          private ImageButton iShare;
 //          private ImageButton iReport;
+
 
     public AdapterSendPost(Context context, int textViewResourceId, List<Post_comment> objects, List<Fragment> fragments){
         super(context, textViewResourceId, objects);

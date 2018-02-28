@@ -81,7 +81,7 @@ public class AdapterPost extends ArrayAdapter<Post_ListView> {
 
         holder.ivImg.setImageResource(R.drawable.img);
         holder.tvTitle.setText(post.getTitle());
-        holder.tvBody.setText(post.getBody());
+        holder.tvBody.setText(post.getCoursecode());
         holder.tvTime.setText(post.getDate());
 
         //设定删除键的监听

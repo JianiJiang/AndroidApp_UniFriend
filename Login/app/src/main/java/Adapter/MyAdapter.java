@@ -13,6 +13,7 @@ import android.support.v4.app.Fragment;
 import android.content.Context;
 
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,7 @@ public class MyAdapter extends ArrayAdapter<Post_ListView> {
     private String username;
     private String courseCode;
     public static List<Post_ListView> homepagePost_list = new ArrayList<>();
+    public static Post_ListView post;
 
 
     private int resourcedId;
@@ -73,7 +75,7 @@ public class MyAdapter extends ArrayAdapter<Post_ListView> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        final Post_ListView post = getItem(position);
+        post = getItem(position);
         View view;
         if (convertView == null) {
             view = LayoutInflater.from(getContext()).inflate(resourcedId, parent, false);
@@ -91,13 +93,24 @@ public class MyAdapter extends ArrayAdapter<Post_ListView> {
         tvTime = (TextView) view.findViewById(R.id.tv_item_listview_edited);
         ivImg.setImageResource(R.drawable.img);
         tvTitle.setText(post.getTitle());
-        tvBody.setText(post.getBody());
+        tvBody.setText(post.getCoursecode());
         tvTime.setText(post.getDate());
 
         tvTitle.setOnClickListener(new View.OnClickListener() {
                                        @Override
                                        public void onClick(View view) {
-                                           postDetail = post;
+                                           if(post != null){
+                                               System.out.println("post:" + post.getId());
+
+                                               postDetail = post;
+
+                                               System.out.println("Username:" +postDetail.getUser().getUsername());
+
+
+                                           }else {
+                                               System.out.println("nothing!!!");
+                                           }
+//
                                            activity.replaceFragment(fragments.get(1));
                                        }
                                    });

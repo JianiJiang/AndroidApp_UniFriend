@@ -36,7 +36,7 @@ package entity;
     private String username;
 
 
-        public Post_ListView(Long id, User user, String title, String body, boolean anonymous, int likes, int dislikes, String date){
+        public Post_ListView(Long id, User user, String title, String body, boolean anonymous, int likes, int dislikes, String date, String coursecode){
             this.id = id;
             this.user = user;
             this.title = title;
@@ -45,6 +45,7 @@ package entity;
             this.likes = likes;
             this.dislikes = dislikes;
             this.date = date;
+            this.coursecode = coursecode;
         }
 
     public Post_ListView() {
