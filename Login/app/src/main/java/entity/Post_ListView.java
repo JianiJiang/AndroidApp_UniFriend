@@ -14,6 +14,26 @@ package entity;
         private int likes;
         private int dislikes;
         private String date;
+        private String coursecode;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getCoursecode() {
+        return coursecode;
+    }
+
+    public void setCoursecode(String coursecode) {
+        this.coursecode = coursecode;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+
+    }
+
+    private String username;
 
 
         public Post_ListView(Long id, User user, String title, String body, boolean anonymous, int likes, int dislikes, String date){

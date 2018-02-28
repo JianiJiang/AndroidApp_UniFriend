@@ -70,15 +70,15 @@ public class AdapterSendPost extends ArrayAdapter<Post_comment> {
         iShare = (ImageButton) view.findViewById(R.id.im_post_share);
         iReport = (ImageButton) view.findViewById(R.id.ib_post_report);
 
-        iLike.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), "Like +1 :)", Toast.LENGTH_SHORT).show();
-
-            }
-
-
-        });
+//        iLike.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(getContext(), "Like +1 :)", Toast.LENGTH_SHORT).show();
+//
+//            }
+//
+//
+//        });
 //        iDislike.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

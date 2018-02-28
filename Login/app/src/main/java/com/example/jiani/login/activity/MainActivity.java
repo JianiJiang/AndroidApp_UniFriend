@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static List<Fav_ListView> fav_list = new ArrayList<>();
     public static List<Post_ListView> homepagePost_list = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
